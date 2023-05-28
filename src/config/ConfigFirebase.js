@@ -22,5 +22,5 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 export { auth, signInWithEmailAndPassword, db, firebaseApp };
 
-
+export default firebaseApp
 

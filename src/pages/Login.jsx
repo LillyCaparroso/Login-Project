@@ -2,7 +2,8 @@ import { useState } from "react";
 import { auth, signInWithEmailAndPassword } from "../config/ConfigFirebase";
 import { useNavigate } from "react-router-dom";
 import Logo from "../img/logo.png";
-import "../styles/Login.css"
+import "../styles/Login.css";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -18,10 +19,12 @@ function Login() {
         const isAdmin = user.email === "sergio@gmail.com";
 
         if (isAdmin) {
-          setErrorMessage("Correct user")
+          setErrorMessage("Correct user");
           navigate("/admin");
+          user.rol = "admin";
         } else {
           navigate("/usuario");
+          user.rol = "regular-user";
         }
       })
       .catch((e) => {
@@ -54,10 +57,12 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
         <button className="login-buton" type="submit">
           Login
         </button>
+        <Link to="/signin">
+          <button className="sign-buton">Sign in</button>
+        </Link>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
