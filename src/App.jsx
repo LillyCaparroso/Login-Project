@@ -35,7 +35,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/user" element={<RegularUser />} />
-        <Route path="/signin" element={<SignIn/>} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </BrowserRouter>
   );

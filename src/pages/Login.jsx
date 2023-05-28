@@ -3,12 +3,13 @@ import { auth, signInWithEmailAndPassword } from "../config/ConfigFirebase";
 import { useNavigate } from "react-router-dom";
 import Logo from "../img/logo.png";
 import "../styles/Login.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -20,9 +21,11 @@ function Login() {
 
         if (isAdmin) {
           setErrorMessage("Correct user");
+          setLoggedIn(true);
           navigate("/admin");
           user.rol = "admin";
         } else {
+          setLoggedIn(true);
           navigate("/usuario");
           user.rol = "regular-user";
         }
@@ -31,6 +34,10 @@ function Login() {
         setErrorMessage("Incorrect e-mail or password");
       });
   };
+
+  if (loggedIn) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="login-container">
