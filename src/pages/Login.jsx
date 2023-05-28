@@ -23,7 +23,7 @@ function Login() {
           navigate("/admin");
           user.rol = "admin";
         } else {
-          navigate("/usuario");
+          navigate("/user");
           user.rol = "regular-user";
         }
       })
