@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { auth, signInWithEmailAndPassword } from "../api/ConfigFirebase";
+import { auth, signInWithEmailAndPassword } from "../config/ConfigFirebase";
 import { useNavigate } from "react-router-dom";
-import { Logo } from "../img/logo.png";
+import Logo from "../img/logo.png";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -22,7 +22,7 @@ function Login() {
           navigate("/usuario");
         }
       })
-      .catch((error) => {
+      .catch((e) => {
         setErrorMessage("Incorrect e-mail or password");
       });
   };
