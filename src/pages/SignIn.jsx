@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
+import "../styles/SignIn.css"
+import Logo from "../img/logo.png";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -27,9 +28,10 @@ function SignIn() {
 
   return (
     <div className="container-signup">
+    <img src={Logo} alt="Logo" className="img-salesianos" />
       {error && <p>{error}</p>}
       {success && <p>{success}</p>}
-      <h3 className="signup-tittle"> Register a new user </h3>
+      <h3 className="signup-tittle"> New User Registration </h3>
       <form className="signup-form" onSubmit={handleSubmit}>
         <label className="signup-label" htmlFor="email">Email:</label>
         <input

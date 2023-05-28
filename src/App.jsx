@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { auth } from "./config/ConfigFirebase";
 import Login from "../src/pages/Login";
 import Admin from "./pages/Admin";
+import RegularUser from "./pages/RegularUser";
+import SignIn from "./pages/SignIn";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,6 +34,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/user" element={<RegularUser />} />
+        <Route path="/signin" element={<SignIn/>} />
       </Routes>
     </BrowserRouter>
   );
