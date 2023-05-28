@@ -2,6 +2,7 @@ import { useState } from "react";
 import { auth, signInWithEmailAndPassword } from "../config/ConfigFirebase";
 import { useNavigate } from "react-router-dom";
 import Logo from "../img/logo.png";
+import "../styles/Login.css"
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,7 +18,8 @@ function Login() {
         const isAdmin = user.email === "sergio@gmail.com";
 
         if (isAdmin) {
-          navigate("/administrador");
+          setErrorMessage("Correct user")
+          navigate("/admin");
         } else {
           navigate("/usuario");
         }
@@ -57,7 +59,7 @@ function Login() {
           Login
         </button>
       </form>
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 }
