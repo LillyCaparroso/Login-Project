@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { auth, signInWithEmailAndPassword } from "../api/ConfigFirebase";
 import { useNavigate } from "react-router-dom";
+import { Logo } from "../img/logo.png";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -28,7 +29,7 @@ function Login() {
 
   return (
     <div className="login-container">
-      <img alt="Logo" className="img-salesianos" />
+      <img src={Logo} alt="Logo" className="img-salesianos" />
       <form className="login-form" onSubmit={handleLogin}>
         <label className="login-label" htmlFor="email">
           Email:
